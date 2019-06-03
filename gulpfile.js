@@ -49,25 +49,25 @@ gulp.task('sandbox', [ 'sandbox-copy', 'modules', 'bower' ]);
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
-gulp.task('test-run', ['angular-form-gen'], function () {
-
-  return gulp.src([
-    'bower_components/jquery/dist/jquery.js',
-    'bower_components/angular/angular.js',
-    'bower_components/angular-mocks/angular-mocks.js',
-    'bower_components/lodash/dist/lodash.compat.js',
-    path.join(config.folders.dest, 'angular-form-gen/angular-form-gen.min.js'),
-    path.join(config.folders.src, 'angular-form-gen/**/*.test.js')
-  ])
-    .pipe(karma({
-      configFile: 'karma.conf.js',
-      action: 'run',
-      singleRun: true
-    })).on('error', function (err) {
-      throw err;
-    });
-
-});
+// gulp.task('test-run', ['angular-form-gen'], function () {
+// 
+//   return gulp.src([
+//     'bower_components/jquery/dist/jquery.js',
+//     'bower_components/angular/angular.js',
+//     'bower_components/angular-mocks/angular-mocks.js',
+//     'bower_components/lodash/dist/lodash.compat.js',
+//     path.join(config.folders.dest, 'angular-form-gen/angular-form-gen.min.js'),
+//     path.join(config.folders.src, 'angular-form-gen/**/*.test.js')
+//   ])
+//     .pipe(karma({
+//       configFile: 'karma.conf.js',
+//       action: 'run',
+//       singleRun: true
+//     })).on('error', function (err) {
+//       throw err;
+//     });
+// 
+// });
 
 //gulp.task('test-watch', ['angular-form-gen'], function () {
 //
@@ -95,7 +95,7 @@ gulp.task('dist-clean', function () {
 
 });
 
-gulp.task('dist', ['dist-clean', 'angular-form-gen', 'test-run'], function () {
+gulp.task('dist', ['dist-clean', 'angular-form-gen'], function () {
 
   var destGlob = path.join(config.folders.dest, 'angular-form-gen/**/*');
   return gulp.src([
