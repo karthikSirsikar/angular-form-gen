@@ -1,6 +1,6 @@
 /*!
    angular-form-gen v0.1.1
-   (c) 2019 (null) McNull https://github.com/McNull/angular-form-gen
+   (c) 2025 (null) McNull https://github.com/McNull/angular-form-gen
    License: MIT
 */
 
@@ -38,7 +38,6 @@
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
-  -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   padding: 10px;
@@ -363,7 +362,6 @@
   -webkit-touch-callout: initial;
   -webkit-user-select: initial;
   -khtml-user-select: initial;
-  -moz-user-select: text;
   -ms-user-select: initial;
   user-select: initial;
   z-index: 20;

@@ -35,17 +35,17 @@ appCopy.dep.push('sitemap');
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
-gulp.task('sandbox-clean', [ 'modules', 'bower' ], function () {
+gulp.task('sandbox-clean', ['modules', 'bower'], function () {
   return gulp.src(path.join(config.folders.dest, 'sandbox'))
     .pipe(clean());
 });
 
-gulp.task('sandbox-copy', [ 'sandbox-clean' ], function () {
+gulp.task('sandbox-copy', ['sandbox-clean'], function () {
   return gulp.src(path.join(config.folders.src, 'sandbox/**/*'))
     .pipe(gulp.dest(path.join(config.folders.dest, 'sandbox')));
 });
 
-gulp.task('sandbox', [ 'sandbox-copy', 'modules', 'bower' ]);
+gulp.task('sandbox', ['sandbox-copy', 'modules', 'bower']);
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
@@ -109,8 +109,8 @@ gulp.task('dist', ['dist-clean', 'angular-form-gen'], function () {
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -
 
-gulp.task('build', [ 'modules', 'bower', 'index' ]);
-gulp.task('watch', [ 'modules-watch' ]);
-gulp.task('default', [ 'build' ]);
+gulp.task('build', ['modules', 'bower', 'index']);
+gulp.task('watch', ['modules-watch']);
+gulp.task('default', ['build']);
 
 // - - - - 8-< - - - - - - - - - - - - - - - - - - -

@@ -159,6 +159,7 @@ $ git clone git@github.com:McNull/angular-form-gen.git
 $ cd angular-form-gen
 
 # Install dependencies
+# use node 11 and gulp 3.9
 $ npm install
 $ bower install
 ```

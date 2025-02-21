@@ -1,6 +1,6 @@
 {
   "name": "angular-form-gen",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Dynamic form schema generator for AngularJS",
   "homepage": "https://github.com/McNull/angular-form-gen",
   "main": "gulp",
@@ -16,10 +16,14 @@
   ],
   "author": "(null) McNull",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "bower": "^1.8.14",
+    "fs": "0.0.1-security",
+    "rm": "^0.1.8"
+  },
   "devDependencies": {
     "autoprefixer": "~2.2.0",
-    "gulp": "~3.8.7",
+    "gulp": "^3.9.1",
     "gulp-clean": "~0.3.1",
     "gulp-concat": "~2.3.4",
     "gulp-if": "^1.2.5",

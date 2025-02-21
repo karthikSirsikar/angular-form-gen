@@ -6,14 +6,14 @@ var fg = angular.module('fg', ['dq']);
  * @param {object} properties   [optional] Initial property values
  */
 fg.constant('FgField', function FgField(type, properties) {
-    this.name = this.type = type;
+  this.name = this.type = type;
 
-    if (properties) {
-      angular.extend(this, properties);
-    }
-
-    this.displayName = this.displayName || this.type.charAt(0).toUpperCase() + this.type.substring(1);
+  if(properties) {
+    angular.extend(this, properties);
   }
+
+  this.displayName = this.displayName || this.type.charAt(0).toUpperCase() + this.type.substring(1);
+}
 );
 
 fg.config(function ($provide) {
@@ -38,8 +38,8 @@ fg.config(function ($provide) {
     function indexOfTemplate(type) {
       var idx = templates.length;
 
-      while (idx--) {
-        if (templates[idx].type === type) {
+      while(idx--) {
+        if(templates[idx].type === type) {
           break;
         }
       }
@@ -54,13 +54,13 @@ fg.config(function ($provide) {
       fields: {
         add: function (objectTemplate, categories, templateUrl, propertiesTemplateUrl) {
 
-          if (!objectTemplate || !objectTemplate.type || !categories || !categories.length) {
+          if(!objectTemplate || !objectTemplate.type || !categories || !categories.length) {
             throw new Error('Need a valid objectTemplate and at least one category');
           }
 
           var idx = indexOfTemplate(objectTemplate.type);
 
-          if (idx !== -1) {
+          if(idx !== -1) {
             templates[idx] = objectTemplate;
           } else {
             templates.push(objectTemplate);
@@ -72,14 +72,14 @@ fg.config(function ($provide) {
         remove: function (type) {
           var idx = indexOfTemplate(type);
 
-          if (idx !== -1) {
+          if(idx !== -1) {
             templates.splice(idx, 1);
           }
 
           this.category(type);
           this.renderInfo(type);
         },
-        get: function(type) {
+        get: function (type) {
           var i = templates.length;
           while(i--) {
             var t = templates[i];
@@ -95,7 +95,7 @@ fg.config(function ($provide) {
           };
         },
         category: function (fieldType, categories) {
-          if (!angular.isArray(categories)) {
+          if(!angular.isArray(categories)) {
             categories = [categories];
           }
 
@@ -104,7 +104,7 @@ fg.config(function ($provide) {
           });
 
           angular.forEach(categories, function (category) {
-            if (config.fields.categories[category] === undefined) {
+            if(config.fields.categories[category] === undefined) {
               config.fields.categories[category] = {};
             }
 
@@ -117,9 +117,9 @@ fg.config(function ($provide) {
 
           var messages = config.validation.messages;
 
-          if (angular.isString(typeOrObject)) {
+          if(angular.isString(typeOrObject)) {
 
-            if (!message) {
+            if(!message) {
               throw new Error('No message specified for ' + typeOrObject);
             }
 
@@ -130,7 +130,7 @@ fg.config(function ($provide) {
         },
         pattern: function (nameOrObject, pattern) {
 
-          if (angular.isString(nameOrObject)) {
+          if(angular.isString(nameOrObject)) {
             config.validation.patterns[nameOrObject] = pattern;
           } else {
             angular.extend(config.validation.patterns, nameOrObject);
@@ -259,6 +259,11 @@ fg.config(function (fgConfigProvider, FgField) {
       //   }],
       //   value: '1'
       // })
+    ],
+    'File input types': [
+      new FgField('file'),
+      new FgField('image'),
+      new FgField('pdf'),
     ]
   };
 
